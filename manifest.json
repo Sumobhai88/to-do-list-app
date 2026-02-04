@@ -1,7 +1,7 @@
 {
   "name": "Sumo Task - Cyberpunk Todo Manager",
   "short_name": "Sumo Task",
-  "description": "Advanced cyberpunk-themed todo application with real-time sync, analytics, and team collaboration",
+  "description": "Cyberpunk-themed todo application with neon effects and futuristic design",
   "version": "2.0.0",
   "start_url": "/",
   "display": "standalone",

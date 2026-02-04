@@ -1,7 +1,7 @@
-class NeonTasks {
+class SumoTasks {
     constructor() {
-        this.tasks = JSON.parse(localStorage.getItem('neonTasks')) || [];
-        this.taskIdCounter = parseInt(localStorage.getItem('neonTaskCounter')) || 0;
+        this.tasks = JSON.parse(localStorage.getItem('sumoTasks')) || [];
+        this.taskIdCounter = parseInt(localStorage.getItem('sumoTaskCounter')) || 0;
         
         this.taskInput = document.getElementById('task-input');
         this.addBtn = document.getElementById('add-btn');
@@ -170,14 +170,14 @@ class NeonTasks {
     }
     
     save() {
-        localStorage.setItem('neonTasks', JSON.stringify(this.tasks));
-        localStorage.setItem('neonTaskCounter', this.taskIdCounter.toString());
+        localStorage.setItem('sumoTasks', JSON.stringify(this.tasks));
+        localStorage.setItem('sumoTaskCounter', this.taskIdCounter.toString());
     }
 }
 
 // Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new NeonTasks();
+    new SumoTasks();
 });
 
 // Add some cyberpunk easter eggs
