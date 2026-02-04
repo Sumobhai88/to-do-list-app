@@ -1,8 +1,8 @@
-# 🌟 Neon Tasks Pro - Cyberpunk Todo Manager
+# 🌟 Sumo Task - Cyberpunk Todo Manager
 
 A futuristic, cyberpunk-themed todo application with advanced features like real-time analytics, multiple view modes, PWA support, and offline functionality.
 
-![Neon Tasks Pro](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
+![Sumo Task](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
 ![Version](https://img.shields.io/badge/Version-2.0.0-blue)
 ![PWA](https://img.shields.io/badge/PWA-Enabled-purple)
 
@@ -46,7 +46,7 @@ A futuristic, cyberpunk-themed todo application with advanced features like real
 
 ## 🚀 Live Demo
 
-**🌐 [Try Neon Tasks Pro Live](https://neon-tasks-pro.netlify.app)**
+**🌐 [Try Sumo Task Live](https://sumo-task.netlify.app)**
 
 ## 🛠️ Installation
 
@@ -58,10 +58,10 @@ A futuristic, cyberpunk-themed todo application with advanced features like real
 ### Option 2: Local Development
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/neon-tasks-pro.git
+git clone https://github.com/yourusername/sumo-task.git
 
 # Navigate to directory
-cd neon-tasks-pro
+cd sumo-task
 
 # Serve locally (Python)
 python -m http.server 8000
@@ -193,12 +193,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 🐛 [Report Issues](https://github.com/yourusername/neon-tasks-pro/issues)
-- 💬 [Discussions](https://github.com/yourusername/neon-tasks-pro/discussions)
-- 📧 Email: support@neontasks.com
+- 🐛 [Report Issues](https://github.com/yourusername/sumo-task/issues)
+- 💬 [Discussions](https://github.com/yourusername/sumo-task/discussions)
+- 📧 Email: support@sumotask.com
 
 ---
 
-**Made with ❤️ and lots of ☕ by the Neon Tasks team**
+**Made with ❤️ and lots of ☕ by the Sumo Task team**
 
 *Experience the future of task management today!* 🚀

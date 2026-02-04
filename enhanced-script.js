@@ -4,7 +4,7 @@ class NeonTasksProduction {
         this.tasks = this.loadTasks();
         this.categories = this.loadCategories();
         this.settings = this.loadSettings();
-        this.taskIdCounter = parseInt(localStorage.getItem('neonTaskCounter')) || 0;
+        this.taskIdCounter = parseInt(localStorage.getItem('sumoTaskCounter')) || 0;
         this.selectedTasks = new Set();
         this.currentView = 'list';
         this.filters = {
@@ -800,12 +800,12 @@ class NeonTasksProduction {
         switch(format) {
             case 'json':
                 content = JSON.stringify(data, null, 2);
-                filename = `neon-tasks-${new Date().toISOString().split('T')[0]}.json`;
+                filename = `sumo-tasks-${new Date().toISOString().split('T')[0]}.json`;
                 mimeType = 'application/json';
                 break;
             case 'csv':
                 content = this.tasksToCSV();
-                filename = `neon-tasks-${new Date().toISOString().split('T')[0]}.csv`;
+                filename = `sumo-tasks-${new Date().toISOString().split('T')[0]}.csv`;
                 mimeType = 'text/csv';
                 break;
             case 'pdf':
@@ -950,7 +950,7 @@ class NeonTasksProduction {
     
     loadTasks() {
         try {
-            const tasks = localStorage.getItem('neonTasks');
+            const tasks = localStorage.getItem('sumoTasks');
             return tasks ? JSON.parse(tasks) : [];
         } catch (error) {
             console.error('Error loading tasks:', error);
@@ -960,7 +960,7 @@ class NeonTasksProduction {
     
     loadCategories() {
         try {
-            const categories = localStorage.getItem('neonCategories');
+            const categories = localStorage.getItem('sumoCategories');
             return categories ? JSON.parse(categories) : ['personal', 'work', 'urgent'];
         } catch (error) {
             return ['personal', 'work', 'urgent'];
@@ -969,7 +969,7 @@ class NeonTasksProduction {
     
     loadSettings() {
         try {
-            const settings = localStorage.getItem('neonSettings');
+            const settings = localStorage.getItem('sumoSettings');
             return settings ? JSON.parse(settings) : {
                 theme: 'cyberpunk',
                 notifications: true,
@@ -988,10 +988,10 @@ class NeonTasksProduction {
     
     save() {
         try {
-            localStorage.setItem('neonTasks', JSON.stringify(this.tasks));
-            localStorage.setItem('neonCategories', JSON.stringify(this.categories));
-            localStorage.setItem('neonSettings', JSON.stringify(this.settings));
-            localStorage.setItem('neonTaskCounter', this.taskIdCounter.toString());
+            localStorage.setItem('sumoTasks', JSON.stringify(this.tasks));
+            localStorage.setItem('sumoCategories', JSON.stringify(this.categories));
+            localStorage.setItem('sumoSettings', JSON.stringify(this.settings));
+            localStorage.setItem('sumoTaskCounter', this.taskIdCounter.toString());
         } catch (error) {
             console.error('Error saving data:', error);
             this.showNotification('Error saving data: ' + error.message, 'error');

@@ -1,6 +1,6 @@
 {
-  "name": "Neon Tasks Pro - Cyberpunk Todo Manager",
-  "short_name": "Neon Tasks",
+  "name": "Sumo Task - Cyberpunk Todo Manager",
+  "short_name": "Sumo Task",
   "description": "Advanced cyberpunk-themed todo application with real-time sync, analytics, and team collaboration",
   "version": "2.0.0",
   "start_url": "/",
@@ -17,14 +17,14 @@
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Desktop view of Neon Tasks"
+      "label": "Desktop view of Sumo Task"
     },
     {
       "src": "screenshots/mobile.png",
       "sizes": "390x844",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Mobile view of Neon Tasks"
+      "label": "Mobile view of Sumo Task"
     }
   ],
   "icons": [

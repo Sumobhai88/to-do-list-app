@@ -44,7 +44,7 @@ class PWAManager {
         installBtn.id = 'install-app';
         installBtn.className = 'install-btn';
         installBtn.innerHTML = '📱 INSTALL APP';
-        installBtn.title = 'Install Neon Tasks as an app';
+        installBtn.title = 'Install Sumo Task as an app';
         
         installBtn.addEventListener('click', () => this.installApp());
         
@@ -165,7 +165,7 @@ class PWAManager {
     
     scheduleTaskReminders() {
         // Schedule notifications for tasks with due dates
-        const tasks = JSON.parse(localStorage.getItem('neonTasks') || '[]');
+        const tasks = JSON.parse(localStorage.getItem('sumoTasks') || '[]');
         const now = new Date();
         
         tasks.forEach(task => {
@@ -236,7 +236,7 @@ class PWAManager {
         if (navigator.share) {
             try {
                 await navigator.share({
-                    title: 'Neon Tasks',
+                    title: 'Sumo Task',
                     text: `Task: ${task.text}`,
                     url: window.location.href
                 });
@@ -245,7 +245,7 @@ class PWAManager {
             }
         } else {
             // Fallback to clipboard
-            this.copyToClipboard(`Task: ${task.text}\n\nShared from Neon Tasks`);
+            this.copyToClipboard(`Task: ${task.text}\n\nShared from Sumo Task`);
         }
     }
     

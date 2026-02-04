@@ -1,5 +1,5 @@
 // Service Worker for PWA functionality
-const CACHE_NAME = 'sumo-tasks-v1';
+const CACHE_NAME = 'sumo-task-v1';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -76,7 +76,7 @@ self.addEventListener('push', event => {
     };
 
     event.waitUntil(
-        self.registration.showNotification('Neon Tasks', options)
+        self.registration.showNotification('Sumo Task', options)
     );
 });
 
