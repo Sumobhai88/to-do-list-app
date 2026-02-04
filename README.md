@@ -1,9 +1,9 @@
 # 🌟 Sumo Task - Cyberpunk Todo Manager
 
-A futuristic, cyberpunk-themed todo application with advanced features like real-time analytics, multiple view modes, PWA support, and offline functionality.
+A futuristic, cyberpunk-themed todo application with neon effects and smooth animations.
 
 ![Sumo Task](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
-![Version](https://img.shields.io/badge/Version-2.0.0-blue)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue)
 ![PWA](https://img.shields.io/badge/PWA-Enabled-purple)
 
 ## ✨ Features
