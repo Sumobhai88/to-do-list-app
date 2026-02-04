@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Tasks Pro - Cyberpunk Todo Manager</title>
+    <meta name="description" content="Advanced cyberpunk-themed todo application with real-time sync, analytics, and team collaboration">
+    <meta name="keywords" content="todo, productivity, cyberpunk, tasks, collaboration, analytics">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Neon Tasks">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="components.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="loading-text">NEON</span>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+            <div class="loading-status">INITIALIZING SYSTEM...</div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="app hidden">
+        <div class="container">
+            <div class="grid-overlay"></div>
+            
+            <!-- Header -->
+            <header class="header">
+                <div class="header-top">
+                    <h1 class="title">
+                        <span class="title-main">NEON</span>
+                        <span class="title-sub">TASKS PRO</span>
+                    </h1>
+                    <div class="header-controls">
+                        <button id="theme-toggle" class="icon-btn" title="Toggle Theme">🌓</button>
+                        <button id="settings-btn" class="icon-btn" title="Settings">⚙️</button>
+                        <button id="analytics-btn" class="icon-btn" title="Analytics">📊</button>
+                        <button id="export-btn" class="icon-btn" title="Export Data">💾</button>
+                    </div>
+                </div>
+                <div class="status-bar">
+                    <span class="status-item" id="system-status">ACTIVE</span>
+                    <span class="status-item" id="task-count">0 TASKS</span>
+                    <span class="status-item" id="sync-status">OFFLINE</span>
+                </div>
+            </header>
+
+            <!-- Controls Section -->
+            <div class="controls-section">
+                <div class="search-filter-row">
+                    <div class="search-wrapper">
+                        <input type="text" id="search-input" placeholder="SEARCH TASKS..." class="search-input">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                    <select id="filter-category" class="filter-select">
+                        <option value="all">ALL CATEGORIES</option>
+                        <option value="work">WORK</option>
+                        <option value="personal">PERSONAL</option>
+                        <option value="urgent">URGENT</option>
+                    </select>
+                    <select id="filter-priority" class="filter-select">
+                        <option value="all">ALL PRIORITIES</option>
+                        <option value="high">HIGH</option>
+                        <option value="medium">MEDIUM</option>
+                        <option value="low">LOW</option>
+                    </select>
+                    <select id="filter-status" class="filter-select">
+                        <option value="all">ALL STATUS</option>
+                        <option value="active">ACTIVE</option>
+                        <option value="completed">COMPLETED</option>
+                        <option value="overdue">OVERDUE</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-wrapper">
+                    <input type="text" id="task-input" placeholder="ENTER NEW TASK..." maxlength="200">
+                    <select id="task-category" class="task-category-select">
+                        <option value="personal">PERSONAL</option>
+                        <option value="work">WORK</option>
+                        <option value="urgent">URGENT</option>
+                    </select>
+                    <select id="task-priority" class="task-priority-select">
+                        <option value="medium">MEDIUM</option>
+                        <option value="high">HIGH</option>
+                        <option value="low">LOW</option>
+                    </select>
+                    <input type="date" id="task-due-date" class="task-due-date">
+                    <button id="add-btn" class="add-button">
+                        <span class="add-icon">+</span>
+                    </button>
+                </div>
+                <div class="quick-actions">
+                    <button class="quick-btn" data-template="meeting">📅 MEETING</button>
+                    <button class="quick-btn" data-template="call">📞 CALL</button>
+                    <button class="quick-btn" data-template="email">📧 EMAIL</button>
+                    <button class="quick-btn" data-template="review">📝 REVIEW</button>
+                </div>
+            </div>
+
+            <!-- Tasks Container -->
+            <div class="tasks-container">
+                <div class="tasks-header">
+                    <div class="view-controls">
+                        <button id="view-list" class="view-btn active">📋 LIST</button>
+                        <button id="view-board" class="view-btn">📊 BOARD</button>
+                        <button id="view-calendar" class="view-btn">📅 CALENDAR</button>
+                    </div>
+                    <div class="bulk-actions">
+                        <button id="select-all" class="bulk-btn">SELECT ALL</button>
+                        <button id="bulk-complete" class="bulk-btn">COMPLETE</button>
+                        <button id="bulk-delete" class="bulk-btn">DELETE</button>
+                    </div>
+                </div>
+                
+                <div id="tasks-list-view" class="tasks-view active">
+                    <ul id="task-list" class="task-list"></ul>
+                </div>
+                
+                <div id="tasks-board-view" class="tasks-view board-view">
+                    <div class="board-columns">
+                        <div class="board-column" data-status="todo">
+                            <h3>TO DO</h3>
+                            <div class="board-tasks" id="board-todo"></div>
+                        </div>
+                        <div class="board-column" data-status="progress">
+                            <h3>IN PROGRESS</h3>
+                            <div class="board-tasks" id="board-progress"></div>
+                        </div>
+                        <div class="board-column" data-status="completed">
+                            <h3>COMPLETED</h3>
+                            <div class="board-tasks" id="board-completed"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="tasks-calendar-view" class="tasks-view calendar-view">
+                    <div id="calendar-container"></div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="footer-left">
+                    <button id="clear-completed" class="action-btn">CLEAR COMPLETED</button>
+                    <button id="backup-data" class="action-btn">BACKUP</button>
+                    <button id="import-data" class="action-btn">IMPORT</button>
+                </div>
+                <div class="footer-center">
+                    <div class="productivity-ring">
+                        <svg class="ring-svg" width="60" height="60">
+                            <circle cx="30" cy="30" r="25" class="ring-bg"></circle>
+                            <circle cx="30" cy="30" r="25" class="ring-progress" id="productivity-ring"></circle>
+                        </svg>
+                        <div class="ring-text" id="productivity-percent">0%</div>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <div class="power-indicator">
+                        <div class="power-dot"></div>
+                        <span id="system-info">SYSTEM ONLINE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>SYSTEM SETTINGS</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label>THEME</label>
+                    <select id="theme-select">
+                        <option value="cyberpunk">CYBERPUNK</option>
+                        <option value="matrix">MATRIX</option>
+                        <option value="neon-blue">NEON BLUE</option>
+                        <option value="synthwave">SYNTHWAVE</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label>NOTIFICATIONS</label>
+                    <input type="checkbox" id="notifications-toggle" checked>
+                </div>
+                <div class="setting-group">
+                    <label>SOUND EFFECTS</label>
+                    <input type="checkbox" id="sound-toggle">
+                </div>
+                <div class="setting-group">
+                    <label>AUTO SAVE</label>
+                    <input type="checkbox" id="autosave-toggle" checked>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="analytics-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>PRODUCTIVITY ANALYTICS</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="analytics-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications -->
+    <div id="notifications-container" class="notifications-container"></div>
+
+    <!-- Scripts -->
+    <script src="enhanced-script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="pwa.js"></script>
+</body>
+</html>
